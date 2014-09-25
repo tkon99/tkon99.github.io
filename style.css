@@ -1,0 +1,83 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:300,400);
+
+body{
+	text-align: center;
+	font-family: 'Roboto', sans-serif;
+}
+
+h1{
+	font-weight: 300;
+	font-size: 45pt;
+}
+
+#links{
+	margin-top: 50px;
+}
+
+#links a{
+	font-size: 30pt;
+	margin-left: 10px;
+	color: black;
+}
+
+.fa-github:hover{
+	color: gray;
+}
+
+.fa-facebook:hover{
+	color: #48649f;
+}
+
+.fa-twitter:hover{
+	color: #55acee;
+}
+
+.fa-google-plus:hover{
+	color: #dd4b39;
+}
+
+.delay1{
+	-webkit-animation-delay: 1s;
+	animation-delay: 1s;
+}
+.delay2{
+	-webkit-animation-delay: 2s;
+	animation-delay: 2s;
+}
+.delay3{
+	-webkit-animation-delay: 3s;
+	animation-delay: 3s;
+}
+.delay4{
+	-webkit-animation-delay: 4s;
+	animation-delay: 4s;
+}
+.delay5{
+	-webkit-animation-delay: 5s;
+	animation-delay: 5s;
+}
+.delay6{
+	-webkit-animation-delay: 6s;
+	animation-delay: 6s;
+}
+
+.lang{
+	-webkit-animation-duration: 3s;
+	animation-duration: 3s;
+}
+
+#function{
+	margin-top: 0px;
+}
+
+#name{
+	margin-bottom: 0px;
+}
+
+#picture{
+	border-radius: 100px;
+            -moz-border-radius: 100px;
+            -khtml-border-radius: 100px;
+            -webkit-border-radius: 100px;
+    border: 4px double black;
+}
