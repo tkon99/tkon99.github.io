@@ -35,7 +35,7 @@ function colorSwitch(){
 $(document).ready(function(){
 	colors();
 
-	var hash = location.hash.substring(1);
+	var hash = location.hash.substring(1).split("+").join(" ");
 	if(hash !== "" && hash !== undefined){
 		document.title = "RIP. "+hash;
 		$("#hash").html(hash);
