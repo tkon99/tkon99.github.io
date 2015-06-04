@@ -1,67 +1,45 @@
-function getAge(dateString) {
-    var today = new Date();
-    var birthDate = new Date(dateString);
-    var age = today.getFullYear() - birthDate.getFullYear();
-    var m = today.getMonth() - birthDate.getMonth();
-    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
-        age--;
-    }
-    return age;
-}
-
-var age;
-var infoHTML;
-
-//Animations
-$("a").hover(function(){
-	$(this).addClass("animated swing");
-},
-function(){
-	$(this).removeClass("animated swing");
-});
-
-//Hashes
-$(document).ready(function(){
-	var hash = window.location.hash;
-
-	age = getAge("1999/05/04");
-
-	//Content
-	infoHTML = "Hi! I'm Thomas Konings. Some lad living in Essen, Belgium and "+ age +" years old.<br>I'm also CEO at <a href='http://simplyapps.nl/'>simplyApps</a>, have built multiple websites and I've worked on a significant amount of projects.<br><br>Nowadays I'm particularly interested in the economy and certain business aspects, that's why I enjoy working at simplyApps so much.<br>";
-	links = '<div id="links"><a class="big" href="http://github.com/tkon99" target="_blank"><span class="fa fa-github"></span></a> <a class="big" href="http://stackoverflow.com/users/1743392/tkon99" target="_blank"><span class="fa fa-stack-overflow"></span></a> <a  class="big" href="http://facebook.com/tkon99" target="_blank"><span class="fa fa-facebook"></span></a> <a  class="big" href="https://twitter.com/tkon99" target="_blank"><span class="fa fa-twitter"></span></a> <a class="big" href="http://instagram.com/tkon99_" target="_blank"><span class="fa fa-instagram"></span></a> <a class="big" href="https://www.google.com/+ThomasKonings99" target="_blank"><span class="fa fa-google-plus"></span></a></div>';
-	projectsHTML = "I've been featured by:<br><a target='_blank' href='http://lifehacker.com/the-high-orbit-desktop-1680449151?utm_campaign=socialflow_lifehacker_facebook&utm_source=lifehacker_facebook&utm_medium=socialflow'>Lifehacker</a><br><a href='docs/article.pdf' target='_blank'>Norbertuscollege</a><br><br>Some of my projects:<br><a target='_blank' href='http://simplyhomework.nl/'>simplyHomework</a>";
-	hashHandler(hash);
-});
-
-$(window).on('hashchange', function() {
-	var hash = window.location.hash;
-	hashHandler(hash);
-});
-
-function hashHandler(hash){
-	if(hash == "" || hash == "#"){
-		animateDown();
-	}else if(hash == "#info"){
-		$("#content #title").html("Info");
-		$("#content #text").html(infoHTML + links);
-		animateUp();
-	}else if(hash == "#projects"){
-		$("#content #title").html("Projects & Press");
-		$("#content #text").html(projectsHTML + links);
-		animateUp();
-	}else if(hash == "#contact"){
-		$("#content #title").html("Contact");
-		$("#content #text").html("<a class='big white' href='mailto:thomas@simplyapps.nl' target='_blank'><span class='fa fa-envelope white'></span></a><br>"+links);
-		animateUp();
-	}else{
-		animateDown();
+function doHash(hash){
+	if(hash == "about"){
+		$("#aboutmodal").trigger('openModal');
+	}else if(hash == "project"){
+		$("#projectmodal").trigger('openModal');
 	}
 }
 
-function animateUp(){
-	$("#content").animate({top: "0vh"}, 1500);
+function hashChanged(){
+	var hash = window.location.hash.substring(1);
+	doHash(hash);
 }
 
-function animateDown(){
-	$("#content").animate({top: "100vh"}, 1500);
+function removelinks(text) {
+    var urlRegex = /(https?:\/\/[^\s]+)/g;
+    return text.replace(urlRegex, function(url){
+    	return ' <b><a href="'+url+'" target="_blank">Listen it here</a></b>';
+    });
 }
+
+$(document).ready(function(){
+	$("#aboutmodal").easyModal({
+		onClose: function(){
+			window.location.hash = "";
+		},
+		overlayOpacity: 0.1
+	});
+	$("#projectmodal").easyModal({
+		onClose: function(){
+			window.location.hash = "";
+		},
+		overlayOpacity: 0.1
+	});
+
+	//LastFM
+	var url = "http://query.yahooapis.com/v1/public/yql?q=select%20*%20from%20html%20where%20url%20%3D%20%22http://ws.audioscrobbler.com/1.0/user/tkon99/recenttracks.rss%22%20and%20xpath%3D%22*%22&format=json";
+	$.getJSON(url, function(data){
+		//console.log(data);
+		var desc = data.query.results.html.body.rss.channel.item[0].content;
+		$("#song").html(removelinks(desc));
+	});
+
+	var hash = window.location.hash.substring(1);
+	doHash(hash);
+});
