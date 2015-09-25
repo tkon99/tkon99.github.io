@@ -1,7 +1,9 @@
 function doHash(hash){
 	if(hash == "about"){
+		$("#aboutmodal").modal();
 		$("#aboutmodal").trigger('openModal');
 	}else if(hash == "project"){
+		$("#projectmodal").modal();
 		$("#projectmodal").trigger('openModal');
 	}
 }
@@ -27,17 +29,16 @@ function pad(value) {
 }
 
 $(document).ready(function(){
-	$("#aboutmodal").easyModal({
-		onClose: function(){
-			window.location.hash = "";
-		},
-		overlayOpacity: 0.1
-	});
-	$("#projectmodal").easyModal({
-		onClose: function(){
-			window.location.hash = "";
-		},
-		overlayOpacity: 0.1
+	$.modal.defaults = {
+	  opacity: 0.1,          // Overlay opacity
+	  zIndex: 1,              // Overlay z-index.
+	  escapeClose: true,      // Allows the user to close the modal by pressing `ESC`
+	  clickClose: true,       // Allows the user to close the modal by clicking the overlay
+	  modalClass: "modal",    // CSS class added to the element being displayed in the modal.
+	};
+
+	$(document).on($.modal.CLOSE, function(event, modal) {
+		window.location.hash = "";
 	});
 
 	//LastFM
