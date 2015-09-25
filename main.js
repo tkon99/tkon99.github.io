@@ -18,6 +18,14 @@ function removelinks(text) {
     });
 }
 
+function pad(value) {
+    if(value < 10) {
+        return '0' + value;
+    } else {
+        return value;
+    }
+}
+
 $(document).ready(function(){
 	$("#aboutmodal").easyModal({
 		onClose: function(){
@@ -44,7 +52,7 @@ $(document).ready(function(){
 	var git_url = "https://api.github.com/users/tkon99/events";
 	$.getJSON(git_url, function(data){
 		var lastEdit = new Date(data[0]["created_at"]);
-		var desc = lastEdit.getDate()+"-"+(lastEdit.getMonth()+1)+"-"+lastEdit.getFullYear()+" @ "+lastEdit.getHours()+":"+lastEdit.getMinutes();
+		var desc = lastEdit.getDate()+"-"+(lastEdit.getMonth()+1)+"-"+lastEdit.getFullYear()+" @ "+lastEdit.getHours()+":"+pad(lastEdit.getMinutes());
 		$("#codeDate").html('<a href="https://github.com/tkon99?tab=activity" target="_blank">'+desc+'</a>');
 	});
 
