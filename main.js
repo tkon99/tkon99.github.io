@@ -57,6 +57,17 @@ $(document).ready(function(){
 		$("#codeDate").html('<a href="https://github.com/tkon99?tab=activity" target="_blank">'+desc+'</a>');
 	});
 
+	//Whatpulse
+	var wp_url = "https://jsonp.afeld.me/?url="+encodeURIComponent("http://api.whatpulse.org/user.php?user=tkon99&format=json");
+	$.getJSON(wp_url, function(data){
+		var keys = data["Computers"]["computer-0"]["Keys"];
+		var clicks = data["Computers"]["computer-0"]["Clicks"];
+		var lastPulse = data["LastPulse"];
+		var whatpulseUrl = "https://whatpulse.org/tkon99";
+		$("#keys").html('<a href="'+whatpulseUrl+'" target="_blank">'+keys+' (@ '+lastPulse+')</a>');
+		$("#clicks").html('<a href="'+whatpulseUrl+'" target="_blank">'+clicks+' (@ '+lastPulse+')</a>');
+	});
+
 	var hash = window.location.hash.substring(1);
 	doHash(hash);
 });
