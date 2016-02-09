@@ -3,19 +3,18 @@
 
 body { 
   background-color: black;
-
-	font-family: "Open Sans Condensed", sans-serif;
+  font-family: 'Crimson Text', serif;
 }
 
 .desktop{
-	background: url(bg.jpg) no-repeat center center fixed; 
+	background: url("img/bg.jpg") no-repeat center center fixed; 
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
 	  background-size: cover;
 }
 .mobile{
-	background: url(bg.jpg) no-repeat center center fixed; 
+	background: url("img/bg.jpg") no-repeat center center fixed; 
 	  -webkit-background-size: cover;
 	  -moz-background-size: cover;
 	  -o-background-size: cover;
@@ -27,19 +26,49 @@ html,body{
 	margin: 0px;
 }
 
-#page-1,#page-2{
+#page-1,#page-2,#page-3,#page-4{
 	margin: 0px;
 	min-height: 100%;
 	min-height: 100vh;
+}
+
+#page-1,#page-3,#page-4{
 	background-color: rgba(0,0,0,0.5);
 	color: white;
 }
+
 #page-2{
 	background-color: white;
-	background-image: url("noise.png");
+	background-image: url("img/noise.png");
     background-repeat: repeat;
     padding: 15px;
     color: black;
+}
+#page-4{
+	padding-top: 30px;
+}
+#content{
+	background-color: white;
+	background-image: url("img/noise.png");
+	background-repeat: repeat;
+	color: black;
+}
+
+.nopad{
+	padding-bottom: 0px;
+	margin-bottom: 0px;
+}
+
+#playingImg{
+	width: 50%;
+	margin-left: 25%;
+	border-color: gray;
+	border-width: 1px;
+	border-style: solid;
+}
+
+hr{
+	border-color: black;
 }
 
 .sub{
@@ -51,6 +80,9 @@ h1{
     margin: 0px;
     padding-top: 15px;
     padding-bottom: 15px;
+}
+h2{
+	font-family: 'Crimson Text', serif;
 }
 
 .vcenter{
@@ -92,18 +124,20 @@ h1{
 .white{
 	color: white;
 }
-/*
+#codingDay{
+	font-size: 80px;
+	line-height: 80px;
+	padding: 0px;
+	margin: 0px;
+}
+
 #links a{
 	margin-right: 10px;
 	color: white;
-	 -webkit-text-stroke: 1px black;
-	text-shadow:
-       3px 3px 0 #000,
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
-}*/
+}
+#links{
+	padding-top: 15px;
+}
 #links a:last-child{
 	margin-right: 0px !important;
 }
@@ -140,4 +174,40 @@ h1{
 ::selection {
     color: white; 
     background: rgba(0,0,0, .8);
+}
+
+/* Portfolio */
+span.text-content {
+    background: rgba(0,0,0,0.5);
+    color: white;
+    cursor: pointer;
+    display: table;
+    height: 150px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 200px;
+    opacity: 0;
+    -webkit-transition: opacity 500ms;
+    -moz-transition: opacity 500ms;
+    -o-transition: opacity 500ms;
+    transition: opacity 500ms;
+}
+span.text-content span {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+ul.img-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+ul.img-list li {
+    display: inline-block;
+    height: 150px;
+    margin: 0 1em 1em 0;
+    position: relative;
+    width: 200px;
 }

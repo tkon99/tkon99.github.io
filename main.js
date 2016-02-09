@@ -8,6 +8,21 @@ function doHash(hash){
 	}
 }
 
+function ordinal_suffix_of(i) {
+    var j = i % 10,
+        k = i % 100;
+    if (j == 1 && k != 11) {
+        return i + "st";
+    }
+    if (j == 2 && k != 12) {
+        return i + "nd";
+    }
+    if (j == 3 && k != 13) {
+        return i + "rd";
+    }
+    return i + "th";
+}
+
 function hashChanged(){
 	var hash = window.location.hash.substring(1);
 	doHash(hash);
@@ -35,22 +50,51 @@ $(document).ready(function(){
 		$("body").addClass("mobile");
 		$(".fix-height").height($(window).height() + 60);
 		$(".full-page").attr("style","min-height:"+($(window).height() + 60)+" !important;");
+	}else{
+		setInterval(function(){
+			lastFm();
+		},5000);
 	}
 
 	//LastFM
-	var url = "http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=tkon99&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=1&format=json";
-	$.getJSON(url, function(data){
-		var track = data["recenttracks"]["track"][0];
-		var desc = '<a href="'+track["url"]+'" target="_blank">'+track["name"]+' by '+track["artist"]["#text"]+'</a>';
-		$("#song").html(desc);
-	});
+	var currentTrack;
+	function lastFm(){
+		var url = "http://ws.audioscrobbler.com/2.0/?method=user.getRecentTracks&user=tkon99&api_key=5b801a66d1a34e73b6e563afc27ef06b&limit=1&format=json";
+		$.getJSON(url, function(data){
+			var track = data["recenttracks"]["track"][0];
+			if(currentTrack !== track){
+				var desc = '<a href="'+track["url"]+'" target="_blank">'+track["name"]+' by '+track["artist"]["#text"]+'</a>';
+				$("#song").html(desc);
+				var playingDesc = "";
+				var scrobbles = data["recenttracks"]["@attr"]["total"];
+				if(track["@attr"] !== undefined){
+					if(track["@attr"]["nowplaying"]){
+						playingDesc = "Right now I'm listening to:";
+						scrobbles++;
+					}
+				}else{
+					playingDesc = "The last song I listened to is:";
+				}
+				$("#playingDesc").html(playingDesc);
+				if(track["image"][3]["#text"] !== ""){
+					$("#playingImg").attr("src",track["image"][3]["#text"]);
+				}else{
+					$("#playingImg").attr("src","img/album.png");
+				}
+				$("#songCount").html(ordinal_suffix_of(scrobbles));
+			}
+		});
+	}
+	lastFm();
 
 	//Github
 	var git_url = "https://api.github.com/users/tkon99/events";
 	$.getJSON(git_url, function(data){
 		var lastEdit = new Date(data[0]["created_at"]);
-		var desc = lastEdit.getDate()+"-"+(lastEdit.getMonth()+1)+"-"+lastEdit.getFullYear()+" @ "+lastEdit.getHours()+":"+pad(lastEdit.getMinutes());
-		$("#codeDate").html('<a href="https://github.com/tkon99?tab=activity" target="_blank">'+desc+'</a>');
+		var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		$("#codingDay").html(ordinal_suffix_of(lastEdit.getDate()));
+		$("#codingMonth").html("of "+monthNames[lastEdit.getMonth()]);
+		$("#codingTime").html("at "+lastEdit.getHours()+":"+lastEdit.getMinutes());
 	});
 
 	//Whatpulse
