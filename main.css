@@ -165,6 +165,15 @@ h2{
 .fa-stack-overflow:hover{
 	color: #FE7A15;
 }
+.fa-phone:hover{
+	color: #50C85C;
+}
+.fa-envelope:hover{
+	color: #1E88E5;
+}
+.fa-snapchat:hover{
+	color: #FFFC00;
+}
 
 ::-moz-selection { /* Code for Firefox */
     color: white;
@@ -210,4 +219,24 @@ ul.img-list li {
     margin: 0 1em 1em 0;
     position: relative;
     width: 200px;
+}
+
+/* Snapchat Icon */
+@font-face {
+	font-family: 'fa-snapchat';
+	src:url('fonts/fa-snapchat.eot?-73zac');
+	src:url('fonts/fa-snapchat.eot?#iefix-73zac') format('embedded-opentype'),
+		url('fonts/fa-snapchat.ttf?-73zac') format('truetype'),
+		url('fonts/fa-snapchat.woff?-73zac') format('woff'),
+		url('fonts/fa-snapchat.svg?-73zac#fa-snapchat') format('svg');
+}
+
+.fa-snapchat:before {
+	font-family: 'fa-snapchat';
+	content: "\e600";
+}
+
+/* Phone */
+#phone{
+	cursor: pointer;
 }

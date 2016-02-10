@@ -1,13 +1,3 @@
-function doHash(hash){
-	if(hash == "about"){
-		$("#aboutmodal").modal();
-		$("#aboutmodal").trigger('openModal');
-	}else if(hash == "project"){
-		$("#projectmodal").modal();
-		$("#projectmodal").trigger('openModal');
-	}
-}
-
 function ordinal_suffix_of(i) {
     var j = i % 10,
         k = i % 100;
@@ -21,18 +11,6 @@ function ordinal_suffix_of(i) {
         return i + "rd";
     }
     return i + "th";
-}
-
-function hashChanged(){
-	var hash = window.location.hash.substring(1);
-	doHash(hash);
-}
-
-function removelinks(text) {
-    var urlRegex = /(https?:\/\/[^\s]+)/g;
-    return text.replace(urlRegex, function(url){
-    	return ' <b><a href="'+url+'" target="_blank">Listen it here</a></b>';
-    });
 }
 
 function pad(value) {
@@ -94,7 +72,7 @@ $(document).ready(function(){
 		var monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 		$("#codingDay").html(ordinal_suffix_of(lastEdit.getDate()));
 		$("#codingMonth").html("of "+monthNames[lastEdit.getMonth()]);
-		$("#codingTime").html("at "+lastEdit.getHours()+":"+lastEdit.getMinutes());
+		$("#codingTime").html("at "+lastEdit.getHours()+":"+pad(lastEdit.getMinutes()));
 	});
 
 	//Whatpulse
@@ -110,4 +88,15 @@ $(document).ready(function(){
 
 	var hash = window.location.hash.substring(1);
 	doHash(hash);
+});
+
+var _0xe32c=["\x2B\x33\x31\x20\x36\x20\x33\x37\x20\x32\x32\x37\x20\x31\x32\x30"];function kaas(){return _0xe32c[0]}
+$("#phone").click(function(){
+	if(isMobile.any){
+		var url = "tel:"+kaas();
+		var win = window.open(url, '_blank');
+  		win.focus();
+	}else{
+		alert("Je kunt me bereiken op: "+kaas());
+	}
 });
