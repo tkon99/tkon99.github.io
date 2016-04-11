@@ -43,6 +43,8 @@ $(document).ready(function(){
 			if(currentTrack !== track){
 				var desc = '<a href="'+track["url"]+'" target="_blank">'+track["name"]+' by '+track["artist"]["#text"]+'</a>';
 				$("#song").html(desc);
+				$("#song").attr("title", track["date"]["#text"]);
+				$('#song').tooltip();
 				var playingDesc = "";
 				var scrobbles = data["recenttracks"]["@attr"]["total"];
 				if(track["@attr"] !== undefined){
@@ -100,3 +102,7 @@ $("#phone").click(function(){
 		alert("Je kunt me bereiken op: "+kaas());
 	}
 });
+
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})
