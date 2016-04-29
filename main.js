@@ -43,7 +43,6 @@ $(document).ready(function(){
 			if(currentTrack !== track){
 				var desc = '<a href="'+track["url"]+'" target="_blank">'+track["name"]+' by '+track["artist"]["#text"]+'</a>';
 				$("#song").html(desc);
-				$("#song").attr("title", track["date"]["#text"]);
 				$('#song').tooltip();
 				var playingDesc = "";
 				var scrobbles = data["recenttracks"]["@attr"]["total"];
@@ -54,6 +53,7 @@ $(document).ready(function(){
 					}
 				}else{
 					playingDesc = "The last song I listened to is:";
+					$("#song").attr("title", track["date"]["#text"]);
 				}
 				$("#playingDesc").html(playingDesc);
 				if(track["image"][3]["#text"] !== ""){
@@ -78,18 +78,18 @@ $(document).ready(function(){
 	});
 
 	//Whatpulse
-	var wp_url = "https://jsonp.afeld.me/?url="+encodeURIComponent("http://api.whatpulse.org/user.php?user=tkon99&format=json");
-	$.getJSON(wp_url, function(data){
-		var keys = data["Computers"]["computer-0"]["Keys"];
-		var clicks = data["Computers"]["computer-0"]["Clicks"];
-		var lastPulse = data["LastPulse"];
-		var whatpulseUrl = "https://whatpulse.org/tkon99";
-		$("#keys").html('<a href="'+whatpulseUrl+'" target="_blank">'+keys+' (@ '+lastPulse+')</a>');
-		$("#clicks").html('<a href="'+whatpulseUrl+'" target="_blank">'+clicks+' (@ '+lastPulse+')</a>');
-	});
+	// var wp_url = "https://jsonp.afeld.me/?url="+encodeURIComponent("http://api.whatpulse.org/user.php?user=tkon99&format=json");
+	// $.getJSON(wp_url, function(data){
+	// 	var keys = data["Computers"]["computer-0"]["Keys"];
+	// 	var clicks = data["Computers"]["computer-0"]["Clicks"];
+	// 	var lastPulse = data["LastPulse"];
+	// 	var whatpulseUrl = "https://whatpulse.org/tkon99";
+	// 	$("#keys").html('<a href="'+whatpulseUrl+'" target="_blank">'+keys+' (@ '+lastPulse+')</a>');
+	// 	$("#clicks").html('<a href="'+whatpulseUrl+'" target="_blank">'+clicks+' (@ '+lastPulse+')</a>');
+	// });
 
-	var hash = window.location.hash.substring(1);
-	doHash(hash);
+	// var hash = window.location.hash.substring(1);
+	// doHash(hash);
 });
 
 var _0xe32c=["\x2B\x33\x31\x20\x36\x20\x33\x37\x20\x32\x32\x37\x20\x31\x32\x30"];function kaas(){return _0xe32c[0]}
