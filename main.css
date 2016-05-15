@@ -207,19 +207,31 @@ span.text-content span {
     text-align: center;
     vertical-align: middle;
 }
-ul.img-list {
-    list-style-type: none;
-    margin: 0;
+.img-list {
+	margin: 0;
     padding: 0;
     text-align: center;
 }
-ul.img-list li {
-    display: inline-block;
-    height: 150px;
-    margin: 0 1em 1em 0;
-    position: relative;
-    width: 200px;
+.img-list .innercontent{
+	margin: 15px;
+	padding: 15px;
+	background-image: url("img/noise.png");
+    background-repeat: repeat;
+    height: 250px;
+    color: black;
 }
+.img-list .innercontent span{
+	display: block;
+}
+.img-list div img{
+	width: 100%;
+}
+.small-img{
+	max-height: 100%;
+	max-width: 100%;
+	width: 50% !important;
+}
+
 
 /* Snapchat Icon */
 @font-face {
