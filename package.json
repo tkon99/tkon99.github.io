@@ -1,0 +1,27 @@
+{
+  "name": "tkon99.github.io",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tkon99/tkon99.github.io.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tkon99/tkon99.github.io/issues"
+  },
+  "homepage": "https://github.com/tkon99/tkon99.github.io#readme",
+  "dependencies": {
+    "grunt-autoprefixer": "^3.0.4",
+    "grunt-cli": "^1.2.0",
+    "grunt-contrib-watch": "^1.0.0"
+  }
+}

@@ -1,5 +1,7 @@
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC);
+/*@import url(https://fonts.googleapis.com/css?family=Playfair+Display+SC);*/
 @import url(https://fonts.googleapis.com/css?family=Crimson+Text:400italic);
+
+@import url(https://fonts.googleapis.com/css?family=Pacifico);
 
 body { 
   background-color: black;
@@ -33,13 +35,13 @@ html,body{
 }
 
 #page-1,#page-3,#page-4{
-	background-color: rgba(0,0,0,0.5);
+	background-color: rgba(0,0,0,0.4);
 	color: white;
 }
 
 #page-2{
-	background-color: white;
-	background-image: url("img/noise.png");
+	background-color: rgba(256,256,256,0.8);
+	/*background-image: url("img/noise.png");*/
     background-repeat: repeat;
     padding: 15px;
     color: black;
@@ -48,8 +50,8 @@ html,body{
 	padding-top: 30px;
 }
 #content{
-	background-color: white;
-	background-image: url("img/noise.png");
+	background-color: rgba(256,256,256,0.8);
+	/*background-image: url("img/noise.png");*/
 	background-repeat: repeat;
 	color: black;
 }
@@ -76,7 +78,8 @@ hr{
 }
 
 h1{
-	font-family: 'Playfair Display SC', serif;
+	/*font-family: 'Playfair Display SC', serif;*/
+	font-family: 'Pacifico', cursive;
     margin: 0px;
     padding-top: 15px;
     padding-bottom: 15px;
@@ -100,6 +103,9 @@ h2{
 }
 
 .big{
+	font-size: 50pt;
+}
+.icon-big{
 	font-size: 40pt;
 }
 
@@ -133,7 +139,7 @@ h2{
 
 #links a{
 	margin-right: 10px;
-	color: white;
+	color: rgb(50,50,50);
 }
 #links{
 	padding-top: 15px;
