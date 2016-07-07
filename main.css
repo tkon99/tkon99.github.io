@@ -28,34 +28,19 @@ html,body{
 	margin: 0px;
 }
 
-#page-1,#page-2,#page-3,#page-4{
+#page-1{
 	margin: 0px;
 	min-height: 100%;
 	min-height: 100vh;
-}
-
-#page-1,#page-3,#page-4{
 	background-color: rgba(0,0,0,0.4);
 	color: white;
 }
-
-#page-2{
-	background-color: rgba(256,256,256,0.8);
-	/*background-image: url("img/noise.png");*/
-    background-repeat: repeat;
-    padding: 15px;
-    color: black;
+#contents{
+	min-height: 100%;
+	min-height: 100vh;
+	background-color: rgba(240,240,240,0.9);
+	font-size: 16pt;
 }
-#page-4{
-	padding-top: 30px;
-}
-#content{
-	background-color: rgba(256,256,256,0.8);
-	/*background-image: url("img/noise.png");*/
-	background-repeat: repeat;
-	color: black;
-}
-
 .nopad{
 	padding-bottom: 0px;
 	margin-bottom: 0px;
@@ -76,6 +61,9 @@ hr{
 .sub{
 	font-family: 'Crimson Text', serif;
 }
+.sub svg{
+	width: 50%;
+}
 
 h1{
 	/*font-family: 'Playfair Display SC', serif;*/
@@ -83,6 +71,7 @@ h1{
     margin: 0px;
     padding-top: 15px;
     padding-bottom: 15px;
+    text-shadow: 4px 4px rgba(0,0,0,0.4);
 }
 h2{
 	font-family: 'Crimson Text', serif;
