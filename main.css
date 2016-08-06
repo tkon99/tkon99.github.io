@@ -8,37 +8,41 @@ body {
   font-family: 'Crimson Text', serif;
 }
 
-.desktop{
-	background: url("img/bg.jpg") no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
-}
-.mobile{
-	background: url("img/bg.jpg") no-repeat center center fixed; 
-	  -webkit-background-size: cover;
-	  -moz-background-size: cover;
-	  -o-background-size: cover;
-	  background-size: cover;
-}
-
 html,body{
 	padding: 0px;
 	margin: 0px;
+}
+
+.fullheight{
+	min-height: 90vh;
+}
+
+.pad{
+	padding: 15px;
 }
 
 #page-1{
 	margin: 0px;
 	min-height: 100%;
 	min-height: 100vh;
-	background-color: rgba(0,0,0,0.4);
 	color: white;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	background: url("img/bg.jpg") no-repeat center center; 
+	  -webkit-background-size: cover;
+	  -moz-background-size: cover;
+	  -o-background-size: cover;
+	  background-size: cover;
+	  background-position: bottom; 
 }
 #contents{
 	min-height: 100%;
 	min-height: 100vh;
-	background-color: rgba(240,240,240,0.9);
+	background-color: white;
+	color: black;
 	font-size: 16pt;
 }
 .nopad{
@@ -71,19 +75,9 @@ h1{
     margin: 0px;
     padding-top: 15px;
     padding-bottom: 15px;
-    text-shadow: 4px 4px rgba(0,0,0,0.4);
 }
 h2{
 	font-family: 'Crimson Text', serif;
-}
-
-.vcenter{
-	position: absolute;
-  top: 50%;
-  	-webkit-transform: translateY(-50%);
-  	-ms-transform: translateY(-50%);
-  	transform: translateY(-50%);
-    line-height:100%;
 }
 
 .center{
@@ -100,6 +94,14 @@ h2{
 
 #picture{
 	display: inline;
+	padding: 30px;
+	width: 100%;
+	max-width: 400px;
+	height: auto;
+}
+
+#title{
+	text-shadow: 4px 4px rgba(0,0,0,0.4);
 }
 
 .text{
@@ -246,4 +248,8 @@ span.text-content span {
 /* Phone */
 #phone{
 	cursor: pointer;
+}
+
+.edu-card{
+	background-color: #F6F6F6;
 }
