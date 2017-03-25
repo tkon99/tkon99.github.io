@@ -2,173 +2,29 @@
 <html>
 	<head>
 		<title>Thomas Konings</title>
-		<script>
-		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		<script type="text/javascript">
+			function redirect (url) {
+			    var ua        = navigator.userAgent.toLowerCase(),
+			        isIE      = ua.indexOf('msie') !== -1,
+			        version   = parseInt(ua.substr(4, 2), 10);
 
-		  ga('create', 'UA-71863821-1', 'auto');
-		  ga('send', 'pageview');
+			    // Internet Explorer 8 and lower
+			    if (isIE && version < 9) {
+			        var link = document.createElement('a');
+			        link.href = url;
+			        document.body.appendChild(link);
+			        link.click();
+			    }
 
+			    // All other browsers can use the standard window.location.href (they don't lose HTTP_REFERER like Internet Explorer 8 & lower does)
+			    else { 
+			        window.location.href = url; 
+			    }
+			}
+			redirect("https://tkon.nl/");
 		</script>
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
-
-		<link rel="stylesheet" type="text/css" href="main.css">
-
-		<meta name="viewport" content="width=device-width, initial-scale=1">
 	</head>
-	<body class="desktop">
-		<div id="page-1" class="fix-height">
-			<div class="center vcenter">
-				<h1 class="big" id="title">Thomas Konings</h1>
-				<h2 class="sub">17 y/o Student</h2>
-			</div>
-		</div>
-		<div id="page-2" class="full-page">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3 text">
-						<h1 class="center big moreleft">About me</h1>
-						<div class="row center">
-							My full name is Thomas Konings.<br> I'm 17 y/o and live in Roosendaal, The Netherlands.
-						</div>
-						<div class="row center">
-							<img id="picture" width="200px" height="200px" src="http://www.gravatar.com/avatar/b75785f8f2cd1b9bdb5bf2661cb792a4?s=400">
-						</div>
-						<br>
-						<div class="row clearfix">
-							I spend my spare time building websites, reading articles, going to the gym and, of course, doing some homework.
-							My current <b>education level</b> is VWO. I'm in fifth form so I will take my final exam during the next academic year. I also have a <b>FCE</b> certificate in English which means I am at <a href="http://www.world-english.org/cef_language.htm" target="_blank">C1 level</a>. Later this year I'll be taking the CPE exam which puts me on native speaker level (<a href="http://www.world-english.org/cef_language.htm" target="_blank">C2 level</a>).
-							I'm interested in politics, the economy and basically anything that has to do with society as a whole. And technology of course.
-						</div><br>
-						<div class="row center">
-							On this website you'll find info about me, articles I appear in, websites I've build and much more.
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="page-3" class="full-page">
-			<div class="container-fluid">
-				<div class="row img-list">
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/sh.png">
-							<span>simplyHomework</span>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/sa.png">
-							<span>simplyApps</span>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/norbertaan.png">
-							<span>Norbertaan</span>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="innercontent">
-						<img src="img/sites/facebook.jpg">
-							<span>Norbertuscollege Facebook</span>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/vannies.png">
-							<span>Vannies Cake Boutique</span>
-						</div>
-					</div> <!-- http://vanniescakeboutique.nl/ !-->
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/madeleine.png">
-							<span>Madeleine Timmermann</span>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/wowaudio.png">
-							<span>Wowaudio</span>
-						</div>
-					</div>
-					<div class="col-md-3">
-						<div class="innercontent">
-							<img src="img/sites/kcc.png" class="small-img">
-							<span>King's Classic Cars</span>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div id="page-4" class="full-page">
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-6 col-md-offset-3" id="content">
-						<div class="container-fluid text">
-							<div class="row">
-								<h1 class="center nopad">INFO</h1>
-								<hr class="nopad">
-							</div>
-							<div class="row">
-								<div class="center">
-									<h2 class="nopad">Articles I appear in:</h2>
-								</div>
-								<ul>
-									<li><b><a href="http://lifehacker.com/the-high-orbit-desktop-1680449151" target="_blank">Lifehacker</a></b> - My desktop got featured by Lifehacker</li>
-									<li><b><a href="docs/article.pdf" target="_blank">Norbertuscollege Newspaper</a></b> - simplyApps has been featured by my school's newspaper</li>
-									<li><b><a href="docs/econasium.pdf" target="_blank">PrimaOnderwijs</a></b> - I'm also to be spotted in this magazine article about a special course I'm following</li>
-								</ul>
-							</div>
-							<div class="row">
-								<hr class="nopad">
-							</div>
-							<div class="row">
-								<div class="col-md-6">
-									<h2 class="nopad">Music:</h2>
-									<i id="playingDesc"></i><br>
-									<img id="playingImg" src=""><br>
-									<center><i id="song" data-toggle="tooltip" data-placement="bottom"></i><br>
-									<i>That's the <span id="songCount"></span> song!</i></center>
-								</div>
-								<div class="col-md-6">
-									<h2>Coding:</h2>
-									<i>My last <a href="https://github.com/tkon99" target="_blank">Github</a> activity was on:</i><br>
-									<center><i id="codingDay"></i><br>
-									<i id="codingMonth"></i><br>
-									<i id="codingTime"></i></center>
-								</div>
-							</div>		
-							<div class="row">
-								<hr>
-							</div>			
-					</div>
-				</div>
-			</div>
-			<div class="center">
-				<div id="links">
-					<a class="big" href="mailto:thomas@simplyapps.nl?Subject=Contact" target="_blank"><span class="fa fa-envelope"></span></a>
-					 <a class="big" target="_blank" id="phone"><span class="fa fa-phone"></span></a>
-					 <a class="big" href="http://github.com/tkon99" target="_blank"><span class="fa fa-github"></span></a>
-					 <a class="big" href="http://stackoverflow.com/users/1743392/tkon99" target="_blank"><span class="fa fa-stack-overflow"></span></a><br>
-					 <a  class="big" href="http://facebook.com/tkon99" target="_blank"><span class="fa fa-facebook"></span></a>
-					 <a  class="big" href="https://twitter.com/tkon99" target="_blank"><span class="fa fa-twitter"></span></a>
-					 <a class="big" href="http://instagram.com/tkon99_" target="_blank"><span class="fa fa-instagram"></span></a>
-					 <a class="big" href="https://www.snapchat.com/add/tkon99" target="_blank"><span class="fa fa-snapchat"></span></a>
-					 <a class="big" href="https://www.google.com/+ThomasKonings99" target="_blank"><span class="fa fa-google-plus"></span></a>
-				</div>
-			</div>
-		</div>
-
+	<body>
+		<a href="https://tkon.nl/">Go to new url</a>
 	</body>
-	<script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-	<script type="text/javascript" src="js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="js/jquery.modal.min.js"></script>
-	<script type="text/javascript" src="js/html5shiv.js"></script>
-
-	<script type="text/javascript" src="main.js"></script>
 </html>
